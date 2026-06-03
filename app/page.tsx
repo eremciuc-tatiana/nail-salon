@@ -3,7 +3,7 @@ export default function Home() {
     <main className="min-h-screen bg-stone-50 flex flex-col">
       {/* Навигация (заглушка) */}
       <header className="w-full p-6 flex justify-between items-center bg-white shadow-sm">
-        <h1 className="text-xl font-bold text-rose-600">Nail Studio</h1>
+        <h1 className="text-xl font-bold text-rose-600">Nail Tatiana Studio</h1>
         <nav className="space-x-4 text-sm font-medium text-gray-600">
           <a href="#services" className="hover:text-rose-600">Услуги</a>
           <a href="#contacts" className="hover:text-rose-600">Контакты</a>
