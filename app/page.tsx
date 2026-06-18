@@ -1,11 +1,21 @@
+import Image from "next/image";
+import WhatsAppButton from '../components/WhatsAppButton';
+import Footer from "@/components/Footer";
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#FAF8F6] flex flex-col font-sans selection:bg-rose-100 selection:text-rose-900 scroll-smooth">
       {/* --- ШАПКА --- */}
-      <header className="w-full p-4 md:p-6 flex justify-between items-center bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-rose-100/40">
-        <div className="flex flex-col">
-          <h1 className="text-xl md:text-2xl font-light tracking-widest text-neutral-800 font-serif">TE NAILS</h1>
-          <span className="text-[8px] md:text-[9px] text-rose-400 uppercase tracking-widest font-medium mt-0.5">by Tatiana Eremciuc</span>
+      <header className="w-full p-4 md:p-6 flex justify-between items-center bg-rose-100 border-b border-rose-100/40">
+        <div className="flex items-center">
+          <Image
+            src="/logo/logo.png"
+            alt="TE Nails Logo"
+            width={150}
+            height={50}
+            className="h-10 md:h-12 w-auto object-contain"
+            priority
+          />
         </div>
 
         {/* Меню скроется на мобилках, останется на ПК */}
@@ -17,23 +27,48 @@ export default function Home() {
       </header>
 
       {/* --- БЛОК 1: ГЛАВНЫЙ ЭКРАН (HERO) --- */}
-      <section className="flex flex-col justify-center items-center text-center px-4 py-20 md:py-32 max-w-4xl mx-auto">
-        <span className="text-[10px] md:text-xs font-semibold uppercase tracking-widest text-rose-500 mb-6 bg-rose-50 px-4 py-1.5 rounded-full">
-          Privates Nagelstudio in Frankfurt
-        </span>
+      <section
+        className="relative w-full flex flex-col justify-center items-center px-4 py-20 md:py-36 bg-cover bg-center bg-no-repeat bg-fixed overflow-hidden"
+        style={{ backgroundImage: "url('/foto/foto-salon.png')" }}
+      >
+        {/* Анимация парения */}
+        <style>{`
+                @keyframes soft-float {
+                  0% { transform: translateY(0px); }
+                  50% { transform: translateY(-12px); }
+                  100% { transform: translateY(0px); }
+                }
+                .animate-soft-float {
+                  animation: soft-float 6s ease-in-out infinite;
+                }
+        `}
+        </style>
 
-        <h2 className="text-4xl md:text-6xl font-light tracking-tight text-neutral-800 mb-6 font-serif leading-tight">
-          Ästhetik für Maniküre <br className="hidden md:block" /> & Pediküre
-        </h2>
+        {/* Обычное светлое (белое) тонирование для фотографии */}
+        <div className="absolute inset-0 bg-black/15"></div>
 
-        <p className="text-sm md:text-lg text-neutral-600 mb-10 leading-relaxed max-w-xl px-4">
-          Individuelle Pflege, höchste Hygiene und Liebe zum Detail.
-          Ihre Wohlfühloase im Frankfurter Süden.
-        </p>
+  
+        <div className="relative z-10 flex flex-col items-center justify-center text-center 
+          bg-rose-500/35 backdrop-blur-s 
+          w-[340px] h-[340px] md:w-[420px] md:h-[420px] 
+          rounded-full 
+          shadow-[0_10px_40px_rgba(0,0,0,0.06)] border border-white/20 
+          animate-soft-float p-6"
+        >
+          <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-white mb-3">
+            Frankfurt Am Main
+          </span>
 
-        <a href="#contacts" className="bg-neutral-800 text-white px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-widest hover:bg-rose-500 transition-all duration-300 shadow-sm hover:shadow-md">
-          Termin vereinbaren
-        </a>
+          {/* Текст теперь белый, а знак & совпадает по цвету с кнопкой */}
+          <h2 className="text-4xl md:text-5xl font-light tracking-tight text-white mb-6 font-serif leading-tight">
+            Maniküre <br />
+            & <br />
+            Pediküre
+          </h2>
+
+          {/* Контрастная розовая кнопка в цвет амперсанда */}
+          <WhatsAppButton></WhatsAppButton>
+        </div>
       </section>
 
       {/* --- БЛОК 2: УСЛУГИ И ЦЕНЫ (Скелет) --- */}
@@ -79,21 +114,50 @@ export default function Home() {
 
           {/* Сетка: 2 колонки на мобильном, 4 на ПК */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
-            <div className="aspect-square bg-rose-50 rounded-lg flex items-center justify-center border border-rose-100">
-              <span className="text-xs text-rose-300">Foto 1</span>
+
+            {/* Фото 1 */}
+            <div className="relative aspect-square rounded-lg overflow-hidden border border-rose-100 bg-rose-50">
+              <Image
+                src="/portfolio/work-1.jpg"
+                alt="Maniküre Arbeit 1"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-500"
+              />
             </div>
-            <div className="aspect-square bg-stone-100 rounded-lg flex items-center justify-center border border-neutral-200">
-              <span className="text-xs text-neutral-400">Foto 2</span>
+
+            {/* Фото 2 */}
+            <div className="relative aspect-square rounded-lg overflow-hidden border border-neutral-200 bg-stone-100">
+              <Image
+                src="/portfolio/work-2.jpg"
+                alt="Maniküre Arbeit 2"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-500"
+              />
             </div>
-            <div className="aspect-square bg-rose-50 rounded-lg flex items-center justify-center border border-rose-100">
-              <span className="text-xs text-rose-300">Foto 3</span>
+
+            {/* Фото 3 */}
+            <div className="relative aspect-square rounded-lg overflow-hidden border border-rose-100 bg-rose-50">
+              <Image
+                src="/portfolio/work-3.jpg"
+                alt="Maniküre Arbeit 3"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-500"
+              />
             </div>
-            <div className="aspect-square bg-stone-100 rounded-lg flex items-center justify-center border border-neutral-200">
-              <span className="text-xs text-neutral-400">Foto 4</span>
+
+            {/* Фото 4 */}
+            <div className="relative aspect-square rounded-lg overflow-hidden border border-neutral-200 bg-stone-100">
+              <Image
+                src="/portfolio/work-4.jpg"
+                alt="Maniküre Arbeit 4"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-500"
+              />
             </div>
+
           </div>
           <div className="mt-8 text-center">
-            <a href="#" className="text-xs text-neutral-500 hover:text-rose-500 underline underline-offset-4">Mehr auf Instagram ansehen</a>
+            <a href="https://www.instagram.com/eremciuktatiana_nails" target="_blank" rel="noopener noreferrer" className="text-xs text-neutral-500 hover:text-rose-500 underline underline-offset-4">Mehr auf Instagram ansehen</a>
           </div>
         </div>
       </section>
@@ -110,22 +174,12 @@ export default function Home() {
 
             <p className="text-sm text-neutral-500 uppercase tracking-widest mb-4">Terminbuchung</p>
             {/* Ссылка на WhatsApp (потом подставишь номер) */}
-            <a
-              href="https://wa.me/490000000000"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full md:w-auto bg-green-600 text-white px-10 py-4 rounded-full text-xs font-semibold uppercase tracking-widest hover:bg-green-700 transition-all duration-300 flex items-center justify-center gap-2"
-            >
-              Über WhatsApp anfragen
-            </a>
+            <WhatsAppButton></WhatsAppButton>
           </div>
         </div>
       </section>
 
-      {/* --- ПОДВАЛ --- */}
-      <footer className="w-full py-8 text-center text-xs text-neutral-400 bg-white">
-        <p>© {new Date().getFullYear()} TE Nails by Tatiana Eremciuc. Alle Rechte vorbehalten.</p>
-      </footer>
+      <Footer></Footer>
     </main>
   );
 }
