@@ -1,30 +1,14 @@
 import Image from "next/image";
 import WhatsAppButton from '../components/WhatsAppButton';
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import ServicesBlock from "@/components/ServicesSection";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#FAF8F6] flex flex-col font-sans selection:bg-rose-100 selection:text-rose-900 scroll-smooth">
       {/* --- ШАПКА --- */}
-      <header className="w-full p-4 md:p-6 flex justify-between items-center bg-rose-100 border-b border-rose-100/40">
-        <div className="flex items-center">
-          <Image
-            src="/logo/logo.png"
-            alt="TE Nails Logo"
-            width={150}
-            height={50}
-            className="h-10 md:h-12 w-auto object-contain"
-            priority
-          />
-        </div>
-
-        {/* Меню скроется на мобилках, останется на ПК */}
-        <nav className="hidden md:flex space-x-6 text-xs font-medium uppercase tracking-wider text-neutral-500">
-          <a href="#services" className="hover:text-rose-500 transition-colors">Preise</a>
-          <a href="#portfolio" className="hover:text-rose-500 transition-colors">Portfolio</a>
-          <a href="#contacts" className="hover:text-rose-500 transition-colors">Kontakt</a>
-        </nav>
-      </header>
+     <Header/>
 
       {/* --- БЛОК 1: ГЛАВНЫЙ ЭКРАН (HERO) --- */}
       <section
@@ -72,40 +56,7 @@ export default function Home() {
       </section>
 
       {/* --- БЛОК 2: УСЛУГИ И ЦЕНЫ (Скелет) --- */}
-      <section id="services" className="w-full bg-white py-20 px-4">
-        <div className="max-w-3xl mx-auto">
-          <h3 className="text-2xl md:text-3xl font-serif text-center text-neutral-800 mb-12">Leistungen & Preise</h3>
-
-          <div className="space-y-6">
-            {/* Пример услуги 1 */}
-            <div className="flex justify-between items-center border-b border-neutral-100 pb-4">
-              <div className="flex flex-col">
-                <span className="text-sm md:text-base text-neutral-800 font-medium">Maniküre mit Shellac / UV-Lack</span>
-                <span className="text-xs text-neutral-500 mt-1">Entfernen, apparative Maniküre, Naturnagelverstärkung, einfarbig</span>
-              </div>
-              <span className="text-base md:text-lg text-rose-500 font-serif min-w-[60px] text-right">ab 50€</span>
-            </div>
-
-            {/* Пример услуги 2 */}
-            <div className="flex justify-between items-center border-b border-neutral-100 pb-4">
-              <div className="flex flex-col">
-                <span className="text-sm md:text-base text-neutral-800 font-medium">Smart Pediküre</span>
-                <span className="text-xs text-neutral-500 mt-1">Fußpflege (apparative Technik), UV-Lack</span>
-              </div>
-              <span className="text-base md:text-lg text-rose-500 font-serif min-w-[60px] text-right">ab 60€</span>
-            </div>
-
-            {/* Пример услуги 3 */}
-            <div className="flex justify-between items-center border-b border-neutral-100 pb-4">
-              <div className="flex flex-col">
-                <span className="text-sm md:text-base text-neutral-800 font-medium">Nailart (French / Chrome)</span>
-                <span className="text-xs text-neutral-500 mt-1">Zusätzlich zur Basisbehandlung</span>
-              </div>
-              <span className="text-base md:text-lg text-rose-500 font-serif min-w-[60px] text-right">+10€</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServicesBlock/>
 
       {/* --- БЛОК 3: ПОРТФОЛИО (Сетка для фото) --- */}
       <section id="portfolio" className="w-full py-20 px-4 bg-[#FAF8F6]">
@@ -179,7 +130,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Footer></Footer>
+      <Footer/>
     </main>
   );
 }
