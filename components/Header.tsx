@@ -3,8 +3,7 @@ import Image from 'next/image';
 
 export default function Header() {
     return (
-        <header className="w-full p-4 md:p-6 flex justify-between items-center bg-rose-100 border-b border-rose-100/40">
-
+            <header className="w-full md:sticky md:top-0 md:z-50 p-4 md:p-6 flex justify-between items-center bg-white border-b border-neutral-100 md:bg-white/80 md:backdrop-blur-md md:border-rose-100/30 shadow-sm shadow-neutral-100/10">
             {/* Левая часть: Логотип */}
             <div className="flex items-center flex-shrink-0">
                 <Image

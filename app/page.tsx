@@ -2,7 +2,8 @@ import Image from "next/image";
 import WhatsAppButton from '../components/WhatsAppButton';
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import ServicesBlock from "@/components/ServicesSection";
+import ServicesSection from "@/components/ServicesSection";
+import PortfolioSection from "@/components/PortfolioSection";
 
 export default function Home() {
   return (
@@ -55,66 +56,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- БЛОК 2: УСЛУГИ И ЦЕНЫ (Скелет) --- */}
-      <ServicesBlock/>
+      <ServicesSection/>
 
-      {/* --- БЛОК 3: ПОРТФОЛИО (Сетка для фото) --- */}
-      <section id="portfolio" className="w-full py-20 px-4 bg-[#FAF8F6]">
-        <div className="max-w-5xl mx-auto">
-          <h3 className="text-2xl md:text-3xl font-serif text-center text-neutral-800 mb-12">Portfolio</h3>
+      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-rose-200/60 to-transparent" />
 
-          {/* Сетка: 2 колонки на мобильном, 4 на ПК */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
+      <PortfolioSection/>
 
-            {/* Фото 1 */}
-            <div className="relative aspect-square rounded-lg overflow-hidden border border-rose-100 bg-rose-50">
-              <Image
-                src="/portfolio/work-1.jpg"
-                alt="Maniküre Arbeit 1"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-
-            {/* Фото 2 */}
-            <div className="relative aspect-square rounded-lg overflow-hidden border border-neutral-200 bg-stone-100">
-              <Image
-                src="/portfolio/work-2.jpg"
-                alt="Maniküre Arbeit 2"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-
-            {/* Фото 3 */}
-            <div className="relative aspect-square rounded-lg overflow-hidden border border-rose-100 bg-rose-50">
-              <Image
-                src="/portfolio/work-3.jpg"
-                alt="Maniküre Arbeit 3"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-
-            {/* Фото 4 */}
-            <div className="relative aspect-square rounded-lg overflow-hidden border border-neutral-200 bg-stone-100">
-              <Image
-                src="/portfolio/work-4.jpg"
-                alt="Maniküre Arbeit 4"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-
-          </div>
-          <div className="mt-8 text-center">
-            <a href="https://www.instagram.com/eremciuktatiana_nails" target="_blank" rel="noopener noreferrer" className="text-xs text-neutral-500 hover:text-rose-500 underline underline-offset-4">Mehr auf Instagram ansehen</a>
-          </div>
-        </div>
-      </section>
+      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-rose-200/60 to-transparent" />
 
       {/* --- БЛОК 4: КОНТАКТЫ И ЛОКАЦИЯ --- */}
-      <section id="contacts" className="w-full bg-white py-20 px-4 border-t border-neutral-100">
+      <section id="contacts" className="w-full bg-stone-50 py-20 px-4 border-t border-neutral-100">
         <div className="max-w-3xl mx-auto text-center">
           <h3 className="text-2xl md:text-3xl font-serif text-neutral-800 mb-8">Ich freue mich auf Sie</h3>
 

@@ -1,15 +1,24 @@
 import Image from 'next/image';
 import WhatsAppButton from '../components/WhatsAppButton';
+import SectionDivider from './SectionDividerProps';
 
-export default function ServicesBlock() {
+export default function ServicesSection() {
     return (
-        <section id = "services" className = "w-full py-20 px-4 bg-white" >
+        <section id="services" className="w-full" 
+        style={{
+            backgroundImage: "url('/paper-texture.jpg')",
+            backgroundRepeat: "repeat",
+        }}>
+            <div className='w-full bg-white/75  py-20 px-4'>
+        
+
             <div className="max-w-5xl mx-auto">
 
                 <div className="text-center mb-16">
                     <h2 className="text-2xl md:text-4xl font-serif text-neutral-800 mb-4 leading-relaxed">
                         Willkommen bei <span className="text-rose-400">TE Nail Studio</span>
                     </h2>
+                        <SectionDivider/>
                     <p className="text-sm text-neutral-500 max-w-lg mx-auto">
                         Höchste Qualität, sterile Instrumente und individuelle Pflege für Ihre Hände und Füße.
                     </p>
@@ -97,6 +106,7 @@ export default function ServicesBlock() {
 
                 </div>
 
+            </div>
             </div>
     </section>
   );
